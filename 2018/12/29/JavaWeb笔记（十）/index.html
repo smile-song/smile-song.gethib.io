@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="����,">
+  <meta name="keywords" content="导航,">
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="HttpServletWrapper �� HttpServletResponseWrapper  1). Servlet API ���ṩ��һ�� HttpServletRequestWrapper ������װԭʼ�� request ����,HttpServletRequestWrapper ��ʵ���� HttpServletRequest �ӿ��е����з���,��Щ��">
-<meta name="keywords" content="����">
+<meta name="description" content="HttpServletWrapper 和 HttpServletResponseWrapper  1). Servlet API 中提供了一个 HttpServletRequestWrapper 类来包装原始的 request 对象,HttpServletRequestWrapper 类实现了 HttpServletRequest 接口中的所有方法,这些方法的内部实现都是仅仅调用了一下所包装的的">
+<meta name="keywords" content="导航">
 <meta property="og:type" content="article">
-<meta property="og:title" content="javaWEB�ʼǣ�ʮ��">
+<meta property="og:title" content="javaWEB笔记（十）">
 <meta property="og:url" content="http://yoursite.com/2018/12/29/JavaWeb笔记（十）/index.html">
 <meta property="og:site_name" content="烂笔头">
-<meta property="og:description" content="HttpServletWrapper �� HttpServletResponseWrapper  1). Servlet API ���ṩ��һ�� HttpServletRequestWrapper ������װԭʼ�� request ����,HttpServletRequestWrapper ��ʵ���� HttpServletRequest �ӿ��е����з���,��Щ��">
+<meta property="og:description" content="HttpServletWrapper 和 HttpServletResponseWrapper  1). Servlet API 中提供了一个 HttpServletRequestWrapper 类来包装原始的 request 对象,HttpServletRequestWrapper 类实现了 HttpServletRequest 接口中的所有方法,这些方法的内部实现都是仅仅调用了一下所包装的的">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-02-28T15:46:28.393Z">
+<meta property="og:updated_time" content="2019-02-28T16:16:39.019Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="javaWEB�ʼǣ�ʮ��">
-<meta name="twitter:description" content="HttpServletWrapper �� HttpServletResponseWrapper  1). Servlet API ���ṩ��һ�� HttpServletRequestWrapper ������װԭʼ�� request ����,HttpServletRequestWrapper ��ʵ���� HttpServletRequest �ӿ��е����з���,��Щ��">
+<meta name="twitter:title" content="javaWEB笔记（十）">
+<meta name="twitter:description" content="HttpServletWrapper 和 HttpServletResponseWrapper  1). Servlet API 中提供了一个 HttpServletRequestWrapper 类来包装原始的 request 对象,HttpServletRequestWrapper 类实现了 HttpServletRequest 接口中的所有方法,这些方法的内部实现都是仅仅调用了一下所包装的的">
 
 
 
@@ -126,7 +126,7 @@
 
 
 
-  <title>javaWEB�ʼǣ�ʮ�� | 烂笔头</title>
+  <title>javaWEB笔记（十） | 烂笔头</title>
   
 
 
@@ -274,7 +274,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">javaWEB�ʼǣ�ʮ��</h1>
+          <h1 class="post-title" itemprop="name headline">javaWEB笔记（十）</h1>
         
 
         <div class="post-meta">
@@ -309,8 +309,8 @@
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/javaWeb�ʼ�/" itemprop="url" rel="index">
-                    <span itemprop="name">javaWeb�ʼ�</span>
+                  <a href="/categories/javaWeb笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">javaWeb笔记</span>
                   </a>
                 </span>
 
@@ -340,7 +340,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  546
+                  1.1k
                 </span>
               
 
@@ -356,7 +356,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  3
+                  5
                 </span>
               
             </div>
@@ -378,14 +378,14 @@
 
       
         <ol start="2">
-<li>HttpServletWrapper �� HttpServletResponseWrapper</li>
+<li>HttpServletWrapper 和 HttpServletResponseWrapper</li>
 </ol>
-<p>1). Servlet API ���ṩ��һ�� HttpServletRequestWrapper ������װԭʼ�� request ����,<br>HttpServletRequestWrapper ��ʵ���� HttpServletRequest �ӿ��е����з���,<br>��Щ�������ڲ�ʵ�ֶ��ǽ���������һ������װ�ĵ� request ����Ķ�Ӧ����</p>
-<p>//��װ��ʵ�� ServletRequest �ӿ�.<br>public class ServletRequestWrapper implements ServletRequest {</p>
-<pre><code>//����װ���Ǹ� ServletRequest ����
+<p>1). Servlet API 中提供了一个 HttpServletRequestWrapper 类来包装原始的 request 对象,<br>HttpServletRequestWrapper 类实现了 HttpServletRequest 接口中的所有方法,<br>这些方法的内部实现都是仅仅调用了一下所包装的的 request 对象的对应方法</p>
+<p>//包装类实现 ServletRequest 接口.<br>public class ServletRequestWrapper implements ServletRequest {</p>
+<pre><code>//被包装的那个 ServletRequest 对象
 private ServletRequest request;
 
-//���������� ServletRequest ʵ�������
+//构造器传入 ServletRequest 实现类对象
 public ServletRequestWrapper(ServletRequest request) {
     if (request == null) {
         throw new IllegalArgumentException(&quot;Request cannot be null&quot;);   
@@ -393,7 +393,7 @@ public ServletRequestWrapper(ServletRequest request) {
     this.request = request;
 }
 
-//����ʵ�� ServletRequest �ķ���: ���ñ���װ���Ǹ���Ա�����ķ���ʵ�֡� 
+//具体实现 ServletRequest 的方法: 调用被包装的那个成员变量的方法实现。 
 public Object getAttribute(String name) {
     return this.request.getAttribute(name);
 }
@@ -404,8 +404,8 @@ public Enumeration getAttributeNames() {
 
 //...    
 </code></pre><p>}    </p>
-<p>������ Servlet API Ҳ�ṩ��һ�� HttpServletResponseWrapper ������װԭʼ�� response ����</p>
-<p>2). ����: ���ڶ� HttpServletRequest �� HttpServletResponse ��ĳһ�����������޸Ļ���ǿ.</p>
+<p>相类似 Servlet API 也提供了一个 HttpServletResponseWrapper 类来包装原始的 response 对象</p>
+<p>2). 作用: 用于对 HttpServletRequest 或 HttpServletResponse 的某一个方法进行修改或增强.</p>
 <p>public class MyHttpServletRequest extends HttpServletRequestWrapper{</p>
 <pre><code>public MyHttpServletRequest(HttpServletRequest request) {
     super(request);
@@ -420,50 +420,50 @@ public String getParameter(String name) {
     return val;
 }
 </code></pre><p>}</p>
-<p>3). ʹ��: �� Filter ��, ���� MyHttpServletRequest �滻����� HttpServletRequest</p>
+<p>3). 使用: 在 Filter 中, 利用 MyHttpServletRequest 替换传入的 HttpServletRequest</p>
 <p>HttpServletRequest req = new MyHttpServletRequest(request);<br>filterChain.doFilter(req, response);</p>
-<p>��ʱ����Ŀ�� Servlet �� JSP �� HttpServletRequest ʵ������ MyHttpServletRequest</p>
+<p>此时到达目标 Servlet 或 JSP 的 HttpServletRequest 实际上是 MyHttpServletRequest</p>
 <ol>
-<li>ʹ�� Filter ���һ���򵥵�Ȩ��ģ��:</li>
+<li>使用 Filter 完成一个简单的权限模型:</li>
 </ol>
-<p>1). ����: </p>
-<p>��. ����Ȩ��<br>    &gt; �鿴ĳ�˵�Ȩ��<br>    &gt; �޸�ĳ�˵�Ȩ��</p>
-<p>��. �Է��ʽ���Ȩ�޿���: ��Ȩ������Է���, ������ʾ: û�ж�Ӧ��Ȩ��, �� ����</p>
-<p>2). ʵ��:</p>
-<p>��. �Է��ʽ���Ȩ�޿���:</p>
-<pre><code>&gt; ʹ�� Filter ����Ȩ�޵Ĺ���: �����û��Ƿ���Ȩ��, ����, ��ֱ����ӦĿ��ҳ��; ��û���ض��� 403.jsp
+<p>1). 需求: </p>
+<p>①. 管理权限<br>    &gt; 查看某人的权限<br>    &gt; 修改某人的权限</p>
+<p>②. 对访问进行权限控制: 有权限则可以访问, 否则提示: 没有对应的权限, 请 返回</p>
+<p>2). 实现:</p>
+<p>②. 对访问进行权限控制:</p>
+<pre><code>&gt; 使用 Filter 进行权限的过滤: 检验用户是否有权限, 若有, 则直接响应目标页面; 若没有重定向到 403.jsp
 
 *   403.jsp
 
     &lt;h4&gt;
-        û�ж�Ӧ��Ȩ��, 
-        �� &lt;a href=&quot;&quot;&gt;����&lt;/a&gt;
+        没有对应的权限, 
+        请 &lt;a href=&quot;&quot;&gt;返回&lt;/a&gt;
     &lt;/h4&gt;
 
-* ʹ�� Filter ��ν��й���: 
+* 使用 Filter 如何进行过滤: 
 
-    - ��ȡ servletPath, ������ /app_3/article1.jsp
-    - ���û��Ѿ���¼(��ʹ�� �û��Ƿ��¼ �Ĺ�����)�������, ��ȡ�û���Ϣ. session.getAttribute(&quot;user&quot;)
-    - �ٻ�ȡ�û������е�Ȩ�޵���Ϣ: List&lt;Authority&gt;
-    - �����û��Ƿ�������  servletPath ��Ȩ��: ����˼�����˱�������, ��û�и��õ�ʵ�ַ�ʽ
-    - ����Ȩ����: ��Ӧ
-    - ��û��Ȩ��: �ض��� 403.jsp 
+    - 获取 servletPath, 类似于 /app_3/article1.jsp
+    - 在用户已经登录(可使用 用户是否登录 的过滤器)的情况下, 获取用户信息. session.getAttribute(&quot;user&quot;)
+    - 再获取用户所具有的权限的信息: List&lt;Authority&gt;
+    - 检验用户是否有请求  servletPath 的权限: 可以思考除了遍历以外, 有没有更好的实现方式
+    - 若有权限则: 响应
+    - 若没有权限: 重定向到 403.jsp 
 
 * others: 
-    - �û�����¼, ��Ҫ���û���Ϣ(User ����)���뵽 HttpSession ��.
-    - �ڼ���Ȩ��֮ǰ, ��Ҫ�ж��û��Ƿ��Ѿ���¼.      
-</code></pre><p>��. ����Ȩ��:</p>
-<pre><code>&gt; ��װȨ����Ϣ: Authority
+    - 用户若登录, 需要把用户信息(User 对象)放入到 HttpSession 中.
+    - 在检验权限之前, 需要判断用户是否已经登录.      
+</code></pre><p>①. 管理权限:</p>
+<pre><code>&gt; 封装权限信息: Authority
 
 Authority{
-    //��ʾ��ҳ���ϵ�Ȩ�޵�����
+    //显示到页面上的权限的名字
     private String displayName;
 
-    //Ȩ�޶�Ӧ�� URL ��ַ: ��Ȩ�޶�Ӧ��һ�� URL, ���� Article_1 -&gt; /app_4/article1.jsp
+    //权限对应的 URL 地址: 已权限对应着一个 URL, 例如 Article_1 -&gt; /app_4/article1.jsp
     private String url;
 }
 
-&gt; ��װ�û���Ϣ: User
+&gt; 封装用户信息: User
 
 User{
     private String username;
@@ -472,16 +472,16 @@ User{
     //...
 }
 
-&gt; ����һ�� UserDao:
+&gt; 创建一个 UserDao:
 
 User get(String username);
 void update(String username, List&lt;Autority&gt;);
 
-&gt; ҳ��
+&gt; 页面
 
 authority-manager.jsp: 
 
-    * ��һ�� text �ı���, ������ username, �ύ��, ʹ�� checkbox ��ʾ��ǰ�û����е�Ȩ�޵���Ϣ.
+    * 有一个 text 文本框, 供输入 username, 提交后, 使用 checkbox 显示当前用户所有的权限的信息.
 
     &lt;form action=&quot;/day_40/AuthorityServlet?method=get&quot; method=&quot;post&quot;&gt;
         Name: &lt;input name=&quot;name&quot; type=&quot;text&quot;/&gt;
@@ -489,8 +489,8 @@ authority-manager.jsp:
     &lt;/form&gt;
 
 
-    * ��� request ���Ƿ��� user ��Ϣ, ����, ����ʾ 
-    xxx ��Ȩ��Ϊ: ��Ӧ��Ȩ�޵� checkbox ���϶Ժ�. ��ʾ, ҳ������Ҫͨ������ѭ���ķ�ʽ��ɸѡ����ѡ���Ȩ��. 
+    * 检查 request 中是否有 user 信息, 若有, 则显示 
+    xxx 的权限为: 对应的权限的 checkbox 打上对号. 提示, 页面上需要通过两层循环的方式来筛选出被选择的权限. 
 
     &lt;form action=&quot;/day_40/AuthorityServlet?method=get&quot; method=&quot;post&quot;&gt;
 
@@ -501,13 +501,13 @@ authority-manager.jsp:
 
     &lt;br&gt;&lt;br&gt;
 
-    AAA ��Ȩ����:
+    AAA 的权限是:
 
     &lt;br&gt;&lt;br&gt;
 
     &lt;form action=&quot;/day_40/AuthorityServlet?method=update&quot; method=&quot;post&quot;&gt;
 
-        &lt;!-- ʹ���������������û��� name --&gt;
+        &lt;!-- 使用隐藏域来保存用户的 name --&gt;
         &lt;input name=&quot;name&quot; type=&quot;hidden&quot; value=&quot;AAA&quot;/&gt;
 
         &lt;input type=&quot;checkbox&quot; name=&quot;authority&quot; value=&quot;/app_4/article1.jsp&quot; 
@@ -531,11 +531,11 @@ authority-manager.jsp:
 
 &gt; Servlet
 
-authority-manager.jsp �ύ������ get ����: ��ȡ�������������: username, �ٸ��� username ��ȡ User ��Ϣ. �� user ���뵽
-request ��, ת���� authority-manager.jsp.
+authority-manager.jsp 提交表单后 get 方法: 获取表单的请求参数: username, 再根据 username 获取 User 信息. 把 user 放入到
+request 中, 转发到 authority-manager.jsp.
 
-authority-manager.jsp �޸�Ȩ�޵ı����ύ�� update ����: ��ȡ�������: username, authory(��ѡ); ��ѡ���װΪ List; ����
-UserDao �� update() ����ʵ��Ȩ�޵��޸�; �ض��� authority-manager.jsp
+authority-manager.jsp 修改权限的表单提交后 update 方法: 获取请求参数: username, authory(多选); 把选项封装为 List; 调用
+UserDao 的 update() 方法实现权限的修改; 重定向到 authority-manager.jsp
 </code></pre>
       
     </div>
@@ -577,7 +577,7 @@ UserDao �� update() ����ʵ��Ȩ�޵��޸�; �ض��� a
       
         <div class="post-tags">
           
-            <a href="/tags/����/" rel="tag"><i class="fa fa-google"></i> ����</a>
+            <a href="/tags/导航/" rel="tag"><i class="fa fa-google"></i> 导航</a>
           
         </div>
       
@@ -590,8 +590,8 @@ UserDao �� update() ����ʵ��Ȩ�޵��޸�; �ض��� a
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/12/27/JavaWeb笔记（九）/" rel="next" title="javaWEB�ʼǣ��ţ�">
-                <i class="fa fa-chevron-left"></i> javaWEB�ʼǣ��ţ�
+              <a href="/2018/12/27/JavaWeb笔记（九）/" rel="next" title="javaWEB笔记（九）">
+                <i class="fa fa-chevron-left"></i> javaWEB笔记（九）
               </a>
             
           </div>

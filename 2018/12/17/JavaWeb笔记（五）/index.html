@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="����,">
+  <meta name="keywords" content="导航,">
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="Session �Ĵ���������  page ָ���� session ����:  1). Ĭ�������, ��һ�η���һ�� WEB Ӧ�õ�һ�� JSP ҳ��ʱ, ��ҳ�涼������һ������������������ Session ����.��Ϊ page ָ���� session ����Ĭ��Ϊ true 2). ���� session ���Ը�Ϊ">
-<meta name="keywords" content="����">
+<meta name="description" content="Session 的创建和销毁  page 指定的 session 属性:  1). 默认情况下, 第一次访问一个 WEB 应用的一个 JSP 页面时, 该页面都必须有一个和这个请求相关联的 Session 对象.因为 page 指定的 session 属性默认为 true 2). 若把 session 属性改为 false, JSP 页面不会要求一定有一个 Session 对象和当前的 JSP">
+<meta name="keywords" content="导航">
 <meta property="og:type" content="article">
-<meta property="og:title" content="javaWEB�ʼǣ��壩">
+<meta property="og:title" content="javaWEB笔记（五）">
 <meta property="og:url" content="http://yoursite.com/2018/12/17/JavaWeb笔记（五）/index.html">
 <meta property="og:site_name" content="烂笔头">
-<meta property="og:description" content="Session �Ĵ���������  page ָ���� session ����:  1). Ĭ�������, ��һ�η���һ�� WEB Ӧ�õ�һ�� JSP ҳ��ʱ, ��ҳ�涼������һ������������������ Session ����.��Ϊ page ָ���� session ����Ĭ��Ϊ true 2). ���� session ���Ը�Ϊ">
+<meta property="og:description" content="Session 的创建和销毁  page 指定的 session 属性:  1). 默认情况下, 第一次访问一个 WEB 应用的一个 JSP 页面时, 该页面都必须有一个和这个请求相关联的 Session 对象.因为 page 指定的 session 属性默认为 true 2). 若把 session 属性改为 false, JSP 页面不会要求一定有一个 Session 对象和当前的 JSP">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-02-28T15:43:59.610Z">
+<meta property="og:updated_time" content="2019-02-28T16:15:44.339Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="javaWEB�ʼǣ��壩">
-<meta name="twitter:description" content="Session �Ĵ���������  page ָ���� session ����:  1). Ĭ�������, ��һ�η���һ�� WEB Ӧ�õ�һ�� JSP ҳ��ʱ, ��ҳ�涼������һ������������������ Session ����.��Ϊ page ָ���� session ����Ĭ��Ϊ true 2). ���� session ���Ը�Ϊ">
+<meta name="twitter:title" content="javaWEB笔记（五）">
+<meta name="twitter:description" content="Session 的创建和销毁  page 指定的 session 属性:  1). 默认情况下, 第一次访问一个 WEB 应用的一个 JSP 页面时, 该页面都必须有一个和这个请求相关联的 Session 对象.因为 page 指定的 session 属性默认为 true 2). 若把 session 属性改为 false, JSP 页面不会要求一定有一个 Session 对象和当前的 JSP">
 
 
 
@@ -126,7 +126,7 @@
 
 
 
-  <title>javaWEB�ʼǣ��壩 | 烂笔头</title>
+  <title>javaWEB笔记（五） | 烂笔头</title>
   
 
 
@@ -274,7 +274,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">javaWEB�ʼǣ��壩</h1>
+          <h1 class="post-title" itemprop="name headline">javaWEB笔记（五）</h1>
         
 
         <div class="post-meta">
@@ -309,8 +309,8 @@
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/javaWeb�ʼ�/" itemprop="url" rel="index">
-                    <span itemprop="name">javaWeb�ʼ�</span>
+                  <a href="/categories/javaWeb笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">javaWeb笔记</span>
                   </a>
                 </span>
 
@@ -340,7 +340,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  121
+                  346
                 </span>
               
 
@@ -378,24 +378,24 @@
 
       
         <ol>
-<li>Session �Ĵ���������</li>
+<li>Session 的创建和销毁</li>
 </ol>
-<p>page ָ���� session ����: </p>
-<p>1). Ĭ�������, ��һ�η���һ�� WEB Ӧ�õ�һ�� JSP ҳ��ʱ, ��ҳ�涼������һ������������������ Session ����.<br>��Ϊ page ָ���� session ����Ĭ��Ϊ true</p>
-<p>2). ���� session ���Ը�Ϊ false, JSP ҳ�治��Ҫ��һ����һ�� Session ����͵�ǰ�� JSP ҳ�������<br>��������һ�η��ʵ�ǰ WEB Ӧ�õ� JSP ҳ��ʱ, �Ͳ��ᴴ��һ�� Session ����. </p>
-<p>3). ����һ�� Session ����: �� page ָ���� session ����Ϊ false �� �� Servlet �п���ͨ������ API ��ȡ Session ����. </p>
-<p>request.getSession(flag): �� flag Ϊ true, ��һ���᷵��һ�� HttpSession ����, ����Ѿ��к͵�ǰ JSP ҳ������� HttpSession<br>����, ֱ�ӷ���; ���û��, �򴴽�һ���µķ���. flag Ϊ false: ���й�����, �򷵻�; ��û��, �򷵻� null</p>
-<p>request.getSession(): �൱�� request.getSession(true);</p>
-<p>4). Session ���������: </p>
-<p>��. ֱ�ӵ��� HttpSession �� invalidate()<br>��. HttpSession ��������ʱ��. </p>
-<pre><code>&gt; �������ʱЧ: getMaxInactiveInterval() ��λ����
-&gt; �������ʱЧ: setMaxInactiveInterval(int interval)
-&gt; ������ web.xml �ļ������� Session �����ʱЧ, ��λ�Ƿ���. 
+<p>page 指定的 session 属性: </p>
+<p>1). 默认情况下, 第一次访问一个 WEB 应用的一个 JSP 页面时, 该页面都必须有一个和这个请求相关联的 Session 对象.<br>因为 page 指定的 session 属性默认为 true</p>
+<p>2). 若把 session 属性改为 false, JSP 页面不会要求一定有一个 Session 对象和当前的 JSP 页面相关联<br>所以若第一次访问当前 WEB 应用的 JSP 页面时, 就不会创建一个 Session 对象. </p>
+<p>3). 创建一个 Session 对象: 若 page 指定的 session 设置为 false 或 在 Servlet 中可以通过以下 API 获取 Session 对象. </p>
+<p>request.getSession(flag): 若 flag 为 true, 则一定会返回一个 HttpSession 对象, 如果已经有和当前 JSP 页面关联的 HttpSession<br>对象, 直接返回; 如果没有, 则创建一个新的返回. flag 为 false: 若有关联的, 则返回; 若没有, 则返回 null</p>
+<p>request.getSession(): 相当于 request.getSession(true);</p>
+<p>4). Session 对象的销毁: </p>
+<p>①. 直接调用 HttpSession 的 invalidate()<br>②. HttpSession 超过过期时间. </p>
+<pre><code>&gt; 返回最大时效: getMaxInactiveInterval() 单位是秒
+&gt; 设置最大时效: setMaxInactiveInterval(int interval)
+&gt; 可以在 web.xml 文件中配置 Session 的最大时效, 单位是分钟. 
 
 &lt;session-config&gt;
     &lt;session-timeout&gt;30&lt;/session-timeout&gt;
 &lt;/session-config&gt;
-</code></pre><p>��. ж�ص�ǰ WEB Ӧ��.<br>ע��: �ر�������������� Session!</p>
+</code></pre><p>③. 卸载当前 WEB 应用.<br>注意: 关闭浏览器不会销毁 Session!</p>
 
       
     </div>
@@ -437,7 +437,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/����/" rel="tag"><i class="fa fa-google"></i> ����</a>
+            <a href="/tags/导航/" rel="tag"><i class="fa fa-google"></i> 导航</a>
           
         </div>
       
@@ -450,8 +450,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/12/12/JavaWeb笔记（四）/" rel="next" title="javaWEB�ʼǣ��ģ�">
-                <i class="fa fa-chevron-left"></i> javaWEB�ʼǣ��ģ�
+              <a href="/2018/12/12/JavaWeb笔记（四）/" rel="next" title="javaWEB笔记（四）">
+                <i class="fa fa-chevron-left"></i> javaWEB笔记（四）
               </a>
             
           </div>
@@ -460,8 +460,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/12/19/JavaWeb笔记（六）/" rel="prev" title="javaWEB�ʼǣ�����">
-                javaWEB�ʼǣ����� <i class="fa fa-chevron-right"></i>
+              <a href="/2018/12/19/JavaWeb笔记（六）/" rel="prev" title="javaWEB笔记（六）">
+                javaWEB笔记（六） <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
